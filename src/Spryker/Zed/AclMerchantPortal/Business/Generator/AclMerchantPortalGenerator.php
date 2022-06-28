@@ -17,7 +17,7 @@ class AclMerchantPortalGenerator implements AclMerchantPortalGeneratorInterface
     /**
      * @var string
      */
-    protected const KEY_MERCHANT_PORTAL = 'MerchantPortral';
+    protected const KEY_MERCHANT_PORTAL = 'MerchantPortal';
 
     /**
      * @var \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig
