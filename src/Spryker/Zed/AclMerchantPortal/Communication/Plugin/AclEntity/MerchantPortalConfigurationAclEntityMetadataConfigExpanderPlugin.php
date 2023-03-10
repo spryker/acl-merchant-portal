@@ -12,22 +12,16 @@ use Spryker\Zed\AclEntityExtension\Dependency\Plugin\AclEntityMetadataConfigExpa
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
- * @deprecated Use {@link \Spryker\Zed\AclMerchantPortal\Communication\Plugin\AclEntity\MerchantPortalConfigurationAclEntityMetadataConfigExpanderPlugin} instead.
- *
  * @method \Spryker\Zed\AclMerchantPortal\Business\AclMerchantPortalFacadeInterface getFacade()
  * @method \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig getConfig()
  * @method \Spryker\Zed\AclMerchantPortal\Communication\AclMerchantPortalCommunicationFactory getFactory()
  */
-class MerchantPortalAclEntityMetadataConfigExpanderPlugin extends AbstractPlugin implements AclEntityMetadataConfigExpanderPluginInterface
+class MerchantPortalConfigurationAclEntityMetadataConfigExpanderPlugin extends AbstractPlugin implements AclEntityMetadataConfigExpanderPluginInterface
 {
     /**
      * {@inheritDoc}
-     * - Expands provided `AclEntityMetadataCollection` transfer object with merchant order composite data.
-     * - Expands provided `AclEntityMetadataCollection` transfer object with merchant product composite data.
-     * - Expands provided `AclEntityMetadataCollection` transfer object with merchant composite data.
-     * - Expands provided `AclEntityMetadataCollection` transfer object with product offer composite data.
-     * - Expands provided `AclEntityMetadataCollection` transfer object with merchant read global entities.
-     * - Expands provided `AclEntityMetadataCollection` transfer object with allow list entities.
+     * - Expands provided `AclEntityMetadataConfig` transfer object with event behavior composite data.
+     * - Executes {@link \Spryker\Zed\AclMerchantPortalExtension\Dependency\Plugin\AclEntityConfigurationExpanderPluginInterface} plugin stack.
      *
      * @api
      *
@@ -38,6 +32,6 @@ class MerchantPortalAclEntityMetadataConfigExpanderPlugin extends AbstractPlugin
     public function expand(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer {
-        return $this->getFacade()->expandAclEntityMetadataConfig($aclEntityMetadataConfigTransfer);
+        return $this->getFacade()->expandAclEntityConfiguration($aclEntityMetadataConfigTransfer);
     }
 }

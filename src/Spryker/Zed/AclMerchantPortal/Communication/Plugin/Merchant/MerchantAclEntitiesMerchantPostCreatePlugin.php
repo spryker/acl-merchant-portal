@@ -13,20 +13,20 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\MerchantExtension\Dependency\Plugin\MerchantPostCreatePluginInterface;
 
 /**
- * @deprecated Use {@link \Spryker\Zed\AclMerchantPortal\Communication\Plugin\Merchant\MerchantAclEntitiesMerchantPostCreatePlugin} instead.
- *
  * @method \Spryker\Zed\AclMerchantPortal\Business\AclMerchantPortalFacadeInterface getFacade()
  * @method \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig getConfig()
  * @method \Spryker\Zed\AclMerchantPortal\Communication\AclMerchantPortalCommunicationFactory getFactory()
  */
-class MerchantAclMerchantPostCreatePlugin extends AbstractPlugin implements MerchantPostCreatePluginInterface
+class MerchantAclEntitiesMerchantPostCreatePlugin extends AbstractPlugin implements MerchantPostCreatePluginInterface
 {
     /**
      * {@inheritDoc}
-     * - Creates ACL group for provided merchant.
-     * - Creates ACL role, ACL rules, ACL entity rules for provided merchant.
+     * - Expects `Merchant.merchantReference` and `Merchant.name` to be set.
+     * - Requires `Merchant.idMerchant` to be provided.
      * - Creates ACL entity segment for provided merchant.
-     * - Returns `MerchantResponse` transfer object.
+     * - Executes {@link \Spryker\Zed\AclMerchantPortalExtension\Dependency\Plugin\MerchantAclRuleExpanderPluginInterface} plugin stack.
+     * - Executes {@link \Spryker\Zed\AclMerchantPortalExtension\Dependency\Plugin\MerchantAclEntityRuleExpanderPluginInterface} plugin stack.
+     * - Creates ACL role, ACL rules, ACL entity rules, ACL group for provided merchant.
      *
      * @api
      *
@@ -36,6 +36,6 @@ class MerchantAclMerchantPostCreatePlugin extends AbstractPlugin implements Merc
      */
     public function postCreate(MerchantTransfer $merchantTransfer): MerchantResponseTransfer
     {
-        return $this->getFacade()->createMerchantAclData($merchantTransfer);
+        return $this->getFacade()->createAclEntitiesForMerchant($merchantTransfer);
     }
 }

@@ -5,21 +5,18 @@
  * Use of this software requires acceptance of the Spryker Marketplace License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\AclMerchantPortal\Business\Expander\AclEntity;
+namespace Spryker\Zed\AclMerchantPortal\Business\Expander;
 
 use Generated\Shared\Transfer\AclEntityMetadataConfigTransfer;
 
-/**
- * @deprecated Use {@link \Spryker\Zed\AclMerchantPortal\Business\Expander\AclEntityConfigurationExpanderInterface} instead.
- */
-interface AclEntityMetadataConfigExpanderInterface
+interface AclEntityConfigurationExpanderInterface
 {
     /**
      * @param \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
      *
      * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
      */
-    public function expandAclEntityMetadataConfig(
+    public function expandAclEntityConfiguration(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer;
 }

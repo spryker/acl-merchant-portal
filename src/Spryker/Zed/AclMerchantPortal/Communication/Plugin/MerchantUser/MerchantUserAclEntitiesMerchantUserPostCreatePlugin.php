@@ -12,19 +12,23 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\MerchantUserExtension\Dependency\Plugin\MerchantUserPostCreatePluginInterface;
 
 /**
- * @deprecated Use {@link \Spryker\Zed\AclMerchantPortal\Communication\Plugin\MerchantUser\MerchantUserAclEntitiesMerchantUserPostCreatePlugin} instead.
- *
  * @method \Spryker\Zed\AclMerchantPortal\Business\AclMerchantPortalFacadeInterface getFacade()
  * @method \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig getConfig()
  * @method \Spryker\Zed\AclMerchantPortal\Communication\AclMerchantPortalCommunicationFactory getFactory()
  */
-class MerchantAclMerchantUserPostCreatePlugin extends AbstractPlugin implements MerchantUserPostCreatePluginInterface
+class MerchantUserAclEntitiesMerchantUserPostCreatePlugin extends AbstractPlugin implements MerchantUserPostCreatePluginInterface
 {
     /**
      * {@inheritDoc}
-     * - Creates ACL group for provided merchant user.
-     * - Creates ACL role, ACL rules, ACL entity rules for provided merchant user.
+     * - Requires `MerchantUser.idMerchantUser` to be provided.
+     * - Requires `MerchantUser.user.idUser`, `MerchantUser.user.firstName` and `MerchantUser.user.lastName` to be provided.
+     * - Requires `MerchantUser.merchant.name` and `MerchantUser.merchant.merchantReference` to be provided.
      * - Creates ACL entity segment for provided merchant user.
+     * - Executes {@link \Spryker\Zed\AclMerchantPortalExtension\Dependency\Plugin\MerchantUserAclRuleExpanderPluginInterface} plugin stack.
+     * - Executes {@link \Spryker\Zed\AclMerchantPortalExtension\Dependency\Plugin\MerchantUserAclEntityRuleExpanderPluginInterface} plugin stack.
+     * - Creates ACL role, ACL rules, ACL entity rules, ACL group for provided merchant user.
+     * - Finds merchant, product-viewer groups.
+     * - Adds merchant user to merchant, product-viewer, merchant-user groups.
      *
      * @api
      *
@@ -34,6 +38,6 @@ class MerchantAclMerchantUserPostCreatePlugin extends AbstractPlugin implements 
      */
     public function postCreate(MerchantUserTransfer $merchantUserTransfer): MerchantUserTransfer
     {
-        return $this->getFacade()->createMerchantUserAclData($merchantUserTransfer);
+        return $this->getFacade()->createAclEntitiesForMerchantUser($merchantUserTransfer);
     }
 }
