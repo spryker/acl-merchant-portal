@@ -1,7 +1,2 @@
 parameters:
     level: 8
-    ignoreErrors:
-        -
-            identifier: argument.type
-        -
-            identifier: return.type
