@@ -63,6 +63,8 @@ class AclEntitySynchronizer implements AclEntitySynchronizerInterface
     public function synchronizeAclEntitiesForMerchants(): void
     {
         $merchantTransfersGenerator = $this->merchantReader->getMerchantTransfersGenerator();
+
+        /** @var list<\Generated\Shared\Transfer\MerchantTransfer> $merchantTransfers */
         foreach ($merchantTransfersGenerator as $merchantTransfers) {
             $this->saveAclEntitiesForMerchants($merchantTransfers);
         }
@@ -74,6 +76,8 @@ class AclEntitySynchronizer implements AclEntitySynchronizerInterface
     public function synchronizeAclEntitiesForMerchantUsers(): void
     {
         $merchantUserTransfersGenerator = $this->merchantUserReader->getMerchantUserTransfersGenerator();
+
+        /** @var list<\Generated\Shared\Transfer\MerchantUserTransfer> $merchantUserTransfers */
         foreach ($merchantUserTransfersGenerator as $merchantUserTransfers) {
             $this->saveAclEntitiesForMerchantUsers($merchantUserTransfers);
         }

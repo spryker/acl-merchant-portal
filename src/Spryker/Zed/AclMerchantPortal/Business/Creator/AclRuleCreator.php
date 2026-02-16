@@ -69,9 +69,9 @@ class AclRuleCreator implements AclRuleCreatorInterface
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\RuleTransfer> $ruleTransfers
+     * @param array<\Generated\Shared\Transfer\RuleTransfer> $ruleTransfers
      *
-     * @return list<\Generated\Shared\Transfer\RuleTransfer>
+     * @return array<\Generated\Shared\Transfer\RuleTransfer>
      */
     protected function executeMerchantAclRuleExpanderPlugins(array $ruleTransfers): array
     {
@@ -83,9 +83,9 @@ class AclRuleCreator implements AclRuleCreatorInterface
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\RuleTransfer> $ruleTransfers
+     * @param array<\Generated\Shared\Transfer\RuleTransfer> $ruleTransfers
      *
-     * @return list<\Generated\Shared\Transfer\RuleTransfer>
+     * @return array<\Generated\Shared\Transfer\RuleTransfer>
      */
     protected function executeMerchantUserAclRuleExpanderPlugins(array $ruleTransfers): array
     {
@@ -97,10 +97,10 @@ class AclRuleCreator implements AclRuleCreatorInterface
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\RuleTransfer> $ruleTransfers
+     * @param array<\Generated\Shared\Transfer\RuleTransfer> $ruleTransfers
      * @param \Generated\Shared\Transfer\RoleTransfer $roleTransfer
      *
-     * @return list<\Generated\Shared\Transfer\RuleTransfer>
+     * @return array<\Generated\Shared\Transfer\RuleTransfer>
      */
     public function createAclRules(array $ruleTransfers, RoleTransfer $roleTransfer): array
     {

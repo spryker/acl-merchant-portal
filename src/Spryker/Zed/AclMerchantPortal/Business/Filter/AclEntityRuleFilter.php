@@ -45,7 +45,10 @@ class AclEntityRuleFilter implements AclEntityRuleFilterInterface
         );
 
         $indexedAclEntityRuleTransfers = $this->indexAclEntityRuleTransfers($aclEntityRuleTransfers);
-        $indexedPersistedAclEntityRuleTransfers = $this->indexAclEntityRuleTransfers($persistedAclEntityRuleTransfers->getAclEntityRules()->getArrayCopy());
+
+        /** @var list<\Generated\Shared\Transfer\AclEntityRuleTransfer> $persistedRules */
+        $persistedRules = $persistedAclEntityRuleTransfers->getAclEntityRules()->getArrayCopy();
+        $indexedPersistedAclEntityRuleTransfers = $this->indexAclEntityRuleTransfers($persistedRules);
 
         ksort($indexedAclEntityRuleTransfers);
         ksort($indexedPersistedAclEntityRuleTransfers);
