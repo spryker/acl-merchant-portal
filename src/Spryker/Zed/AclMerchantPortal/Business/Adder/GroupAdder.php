@@ -31,11 +31,6 @@ class GroupAdder implements GroupAdderInterface
      */
     protected AclMerchantPortalConfig $aclMerchantPortalConfig;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Generator\AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator
-     * @param \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig $aclMerchantPortalConfig
-     */
     public function __construct(
         AclMerchantPortalToAclFacadeInterface $aclFacade,
         AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator,
@@ -46,12 +41,6 @@ class GroupAdder implements GroupAdderInterface
         $this->aclMerchantPortalConfig = $aclMerchantPortalConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     * @param \Generated\Shared\Transfer\GroupTransfer $merchantUserGroupTransfer
-     *
-     * @return void
-     */
     public function addMerchantUserToGroups(MerchantUserTransfer $merchantUserTransfer, GroupTransfer $merchantUserGroupTransfer): void
     {
         $this->addMerchantUserToMerchantGroup($merchantUserTransfer);
@@ -59,11 +48,6 @@ class GroupAdder implements GroupAdderInterface
         $this->addMerchantUserToMerchantUserGroup($merchantUserTransfer, $merchantUserGroupTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return void
-     */
     protected function addMerchantUserToMerchantGroup(MerchantUserTransfer $merchantUserTransfer): void
     {
         $aclMerchantReference = $this->aclMerchantPortalGenerator->generateAclMerchantReference(
@@ -84,11 +68,6 @@ class GroupAdder implements GroupAdderInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return void
-     */
     protected function addMerchantUserToProductViewerGroup(MerchantUserTransfer $merchantUserTransfer): void
     {
         $groupCriteriaTransfer = (new GroupCriteriaTransfer())
@@ -106,12 +85,6 @@ class GroupAdder implements GroupAdderInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     * @param \Generated\Shared\Transfer\GroupTransfer $merchantUserGroupTransfer
-     *
-     * @return void
-     */
     protected function addMerchantUserToMerchantUserGroup(
         MerchantUserTransfer $merchantUserTransfer,
         GroupTransfer $merchantUserGroupTransfer

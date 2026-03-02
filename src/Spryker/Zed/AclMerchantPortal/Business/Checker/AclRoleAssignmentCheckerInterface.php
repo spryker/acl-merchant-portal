@@ -12,11 +12,5 @@ use Generated\Shared\Transfer\RoleTransfer;
 
 interface AclRoleAssignmentCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\GroupTransfer $groupTransfer
-     * @param \Generated\Shared\Transfer\RoleTransfer $roleTransfer
-     *
-     * @return bool
-     */
     public function isRoleAssignedToGroup(GroupTransfer $groupTransfer, RoleTransfer $roleTransfer): bool;
 }

@@ -74,9 +74,6 @@ class AclMerchantPortalFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -87,9 +84,6 @@ class AclMerchantPortalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCreateMerchantAclDataFailsWithEmptyMerchantReference(): void
     {
         // Arrange
@@ -107,9 +101,6 @@ class AclMerchantPortalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCreateMerchantAclDataFailsWithEmptyMerchantName(): void
     {
         // Arrange
@@ -127,9 +118,6 @@ class AclMerchantPortalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCreateMerchantAclDataSuccess(): void
     {
         // Arrange
@@ -148,9 +136,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->assertCount(0, $merchantResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateMerchantUserAclDataSuccess(): void
     {
         // Arrange
@@ -174,9 +159,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->tester->assertAclMerchantUserData();
     }
 
-    /**
-     * @return void
-     */
     public function testExpandAclEntityMetadataConfigSuccess(): void
     {
         // Act
@@ -195,9 +177,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->assertAclEntityMetadataConfigHasEntities($aclEntityMetadataCollectionTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckUserRoleFilterConditionForRootGroupAndProperRole(): void
     {
         //Arrange
@@ -223,9 +202,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->assertFalse($boolCondition);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckUserRoleFilterConditionForRootGroupAndWrongRole(): void
     {
         //Arrange
@@ -241,9 +217,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->assertTrue($boolCondition);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckUserRoleFilterConditionForNotRootGroupAndProperRole(): void
     {
         //Arrange
@@ -259,9 +232,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->assertTrue($boolCondition);
     }
 
-    /**
-     * @return void
-     */
     public function testIsMerchantUserLoginRestrictedReturnsTrueWhenMerchantUserHasRootGroup(): void
     {
         // Arrange
@@ -279,9 +249,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->assertTrue($isMerchantUserLoginRestricted);
     }
 
-    /**
-     * @return void
-     */
     public function testIsMerchantUserLoginRestrictedReturnsFalseWhenMerchantUserHasNoRootGroup(): void
     {
         $merchantTransfer = $this->tester->haveMerchant();
@@ -295,11 +262,6 @@ class AclMerchantPortalFacadeTest extends Unit
         $this->assertFalse($isMerchantUserLoginRestricted);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataCollectionTransfer $aclEntityMetadataCollectionTransfer
-     *
-     * @return void
-     */
     protected function assertAclEntityMetadataConfigEntityWithoutParents(AclEntityMetadataCollectionTransfer $aclEntityMetadataCollectionTransfer): void
     {
         $collection = $aclEntityMetadataCollectionTransfer->getCollection();
@@ -351,11 +313,6 @@ class AclMerchantPortalFacadeTest extends Unit
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataCollectionTransfer $aclEntityMetadataCollectionTransfer
-     *
-     * @return void
-     */
     protected function assertAclEntityMetadataConfigHasEntities(AclEntityMetadataCollectionTransfer $aclEntityMetadataCollectionTransfer): void
     {
         $collection = $aclEntityMetadataCollectionTransfer->getCollection();

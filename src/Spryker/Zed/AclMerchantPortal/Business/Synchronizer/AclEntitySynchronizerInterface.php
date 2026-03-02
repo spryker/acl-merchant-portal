@@ -9,8 +9,5 @@ namespace Spryker\Zed\AclMerchantPortal\Business\Synchronizer;
 
 interface AclEntitySynchronizerInterface
 {
-    /**
-     * @return void
-     */
     public function synchronizeAclEntitiesForMerchantsAndMerchantUsers(): void;
 }

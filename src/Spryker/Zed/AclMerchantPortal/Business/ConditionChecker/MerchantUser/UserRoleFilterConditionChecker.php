@@ -23,10 +23,6 @@ class UserRoleFilterConditionChecker implements UserRoleFilterConditionCheckerIn
      */
     protected $aclMerchantPortalToAclFacadeBridge;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig $config
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclMerchantPortalToAclFacadeBridge
-     */
     public function __construct(
         AclMerchantPortalConfig $config,
         AclMerchantPortalToAclFacadeInterface $aclMerchantPortalToAclFacadeBridge
@@ -35,12 +31,6 @@ class UserRoleFilterConditionChecker implements UserRoleFilterConditionCheckerIn
         $this->aclMerchantPortalToAclFacadeBridge = $aclMerchantPortalToAclFacadeBridge;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UserTransfer $userTransfer
-     * @param string $role
-     *
-     * @return bool
-     */
     public function checkUserRoleFilterCondition(UserTransfer $userTransfer, string $role): bool
     {
         if (!in_array($role, $this->config->getRolesWithBackofficeAccess()) || $userTransfer->getIdUser() === null) {

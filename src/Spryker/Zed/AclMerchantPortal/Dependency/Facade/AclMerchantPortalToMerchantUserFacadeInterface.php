@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\MerchantUserCriteriaTransfer;
 
 interface AclMerchantPortalToMerchantUserFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserCriteriaTransfer $merchantUserCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantUserCollectionTransfer
-     */
     public function getMerchantUserCollection(MerchantUserCriteriaTransfer $merchantUserCriteriaTransfer): MerchantUserCollectionTransfer;
 }

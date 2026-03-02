@@ -31,9 +31,6 @@ class ExpandAclEntityConfigurationTest extends Unit
      */
     protected AclMerchantPortalBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandAclEntityConfigurationExecutesAclEntityConfigurationExpanderPlugins(): void
     {
         // Assert
@@ -58,9 +55,6 @@ class ExpandAclEntityConfigurationTest extends Unit
         $this->tester->getFacade()->expandAclEntityConfiguration(new AclEntityMetadataConfigTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandAclEntityConfigurationDefinesEmptyAclEntityMetadataCollection(): void
     {
         // Act

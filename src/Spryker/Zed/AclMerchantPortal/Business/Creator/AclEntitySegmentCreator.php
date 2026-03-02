@@ -26,10 +26,6 @@ class AclEntitySegmentCreator implements AclEntitySegmentCreatorInterface
      */
     protected AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Generator\AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator
-     */
     public function __construct(
         AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade,
         AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator
@@ -38,11 +34,6 @@ class AclEntitySegmentCreator implements AclEntitySegmentCreatorInterface
         $this->aclMerchantPortalGenerator = $aclMerchantPortalGenerator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntitySegmentTransfer
-     */
     public function createMerchantAclEntitySegment(MerchantTransfer $merchantTransfer): AclEntitySegmentTransfer
     {
         $aclEntitySegmentRequestTransfer = (new AclEntitySegmentRequestTransfer())
@@ -56,11 +47,6 @@ class AclEntitySegmentCreator implements AclEntitySegmentCreatorInterface
             ->getAclEntitySegmentOrFail();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntitySegmentTransfer
-     */
     public function createMerchantUserAclEntitySegment(MerchantUserTransfer $merchantUserTransfer): AclEntitySegmentTransfer
     {
         $aclMerchantUserSegmentName = $this->aclMerchantPortalGenerator->generateAclMerchantUserSegmentName(

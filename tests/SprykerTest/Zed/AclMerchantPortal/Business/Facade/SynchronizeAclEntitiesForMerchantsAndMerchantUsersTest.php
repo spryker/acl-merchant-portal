@@ -35,18 +35,12 @@ class SynchronizeAclEntitiesForMerchantsAndMerchantUsersTest extends Unit
      */
     protected AclMerchantPortalBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
         $this->tester->clearAllAclMerchantData();
     }
 
-    /**
-     * @return void
-     */
     public function testSynchronizeAclEntitiesForMerchantsAndMerchantUsersCreatesEntities(): void
     {
         // Arrange
@@ -71,9 +65,6 @@ class SynchronizeAclEntitiesForMerchantsAndMerchantUsersTest extends Unit
         $this->assertGreaterThan(1, $this->tester->getAclGroupPropelQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testSynchronizeAclEntitiesForMerchantsAndMerchantUsersExecutesMerchantAclRuleExpanderPlugins(): void
     {
         // Assert
@@ -98,9 +89,6 @@ class SynchronizeAclEntitiesForMerchantsAndMerchantUsersTest extends Unit
         $this->tester->getFacade()->synchronizeAclEntitiesForMerchantsAndMerchantUsers();
     }
 
-    /**
-     * @return void
-     */
     public function testSynchronizeAclEntitiesForMerchantsAndMerchantUsersExecutesMerchantAclEntityRuleExpanderPlugins(): void
     {
         // Assert
@@ -125,9 +113,6 @@ class SynchronizeAclEntitiesForMerchantsAndMerchantUsersTest extends Unit
         $this->tester->getFacade()->synchronizeAclEntitiesForMerchantsAndMerchantUsers();
     }
 
-    /**
-     * @return void
-     */
     public function testSynchronizeAclEntitiesForMerchantsAndMerchantUsersExecutesMerchantUserAclRuleExpanderPlugins(): void
     {
         // Assert
@@ -152,9 +137,6 @@ class SynchronizeAclEntitiesForMerchantsAndMerchantUsersTest extends Unit
         $this->tester->getFacade()->synchronizeAclEntitiesForMerchantsAndMerchantUsers();
     }
 
-    /**
-     * @return void
-     */
     public function testSynchronizeAclEntitiesForMerchantsAndMerchantUsersExecutesMerchantUserAclEntityRuleExpanderPlugins(): void
     {
         // Assert
@@ -179,9 +161,6 @@ class SynchronizeAclEntitiesForMerchantsAndMerchantUsersTest extends Unit
         $this->tester->getFacade()->synchronizeAclEntitiesForMerchantsAndMerchantUsers();
     }
 
-    /**
-     * @return void
-     */
     protected function mockMerchantAclRuleExpanderPlugin(): void
     {
         $merchantAclRuleExpanderPluginMock = $this
@@ -206,9 +185,6 @@ class SynchronizeAclEntitiesForMerchantsAndMerchantUsersTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     protected function merchantAclEntityRuleExpanderPluginMock(): void
     {
         $merchantAclEntityRuleExpanderPluginMock = $this

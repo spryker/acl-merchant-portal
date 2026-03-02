@@ -45,9 +45,6 @@ class AclMerchantPortalGeneratorTest extends Unit
      */
     protected AclMerchantPortalBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGenerateAclMerchantUserGroupNameShouldReturnNameIncludingUsersFullName(): void
     {
         // Arrange
@@ -62,9 +59,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         $this->assertSame(static::NAME_WITH_FULL_NAME, $aclMerchantUserGroupName);
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateAclMerchantUserGroupNameShouldReturnNameIncludingUsersUsername(): void
     {
         // Arrange
@@ -79,9 +73,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         $this->assertSame(static::NAME_WITH_USERNAME, $aclMerchantUserGroupName);
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateAclMerchantUserRoleNameShouldReturnNameIncludingUsersFullName(): void
     {
         // Arrange
@@ -96,9 +87,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         $this->assertSame(static::NAME_WITH_FULL_NAME, $aclMerchantUserRoleName);
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateAclMerchantUserRoleNameShouldReturnNameIncludingUsersUsername(): void
     {
         // Arrange
@@ -113,9 +101,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         $this->assertSame(static::NAME_WITH_USERNAME, $aclMerchantUserRoleName);
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateAclMerchantUserSegmentNameShouldReturnNameIncludingUsersFullName(): void
     {
         // Arrange
@@ -133,9 +118,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         $this->assertSame(static::NAME_WITH_FULL_NAME, $aclMerchantUserSegmentName);
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateAclMerchantUserSegmentNameShouldReturnNameIncludingUsersUsername(): void
     {
         // Arrange
@@ -153,9 +135,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         $this->assertSame(static::NAME_WITH_USERNAME, $aclMerchantUserSegmentName);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantUserTransfer
-     */
     protected function createMerchantUserTransfer(): MerchantUserTransfer
     {
         return (new MerchantUserBuilder([
@@ -164,9 +143,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         ]))->build();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantTransfer
-     */
     protected function createMerchantTransfer(): MerchantTransfer
     {
         return $merchantTransfer = (new MerchantBuilder([
@@ -174,9 +150,6 @@ class AclMerchantPortalGeneratorTest extends Unit
         ]))->build();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\UserTransfer
-     */
     protected function createUserTransfer(): UserTransfer
     {
         return (new UserBuilder([

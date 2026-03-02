@@ -19,11 +19,6 @@ use Spryker\Shared\AclEntity\AclEntityConstants;
  */
 class AclEntityMetadataConfigExpander implements AclEntityMetadataConfigExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
-     */
     public function expandAclEntityMetadataConfig(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer {
@@ -1089,11 +1084,6 @@ class AclEntityMetadataConfigExpander implements AclEntityMetadataConfigExpander
         return $this->expandAclEntityMetadataConfigWithAllowList($aclEntityMetadataConfigTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
-     */
     public function expandAclEntityMetadataConfigWithAllowList(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer {

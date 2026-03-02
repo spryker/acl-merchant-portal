@@ -14,11 +14,6 @@ use Generated\Shared\Transfer\AclEntityMetadataConfigTransfer;
  */
 interface AclEntityMetadataConfigExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
-     */
     public function expandAclEntityMetadataConfig(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer;

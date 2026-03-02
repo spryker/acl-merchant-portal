@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\MerchantUserTransfer;
 
 interface MerchantUserRestrictionCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return bool
-     */
     public function isLoginRestricted(MerchantUserTransfer $merchantUserTransfer): bool;
 }

@@ -18,20 +18,11 @@ class AclRoleAssignmentChecker implements AclRoleAssignmentCheckerInterface
      */
     protected AclMerchantPortalToAclFacadeInterface $aclFacade;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     */
     public function __construct(AclMerchantPortalToAclFacadeInterface $aclFacade)
     {
         $this->aclFacade = $aclFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GroupTransfer $groupTransfer
-     * @param \Generated\Shared\Transfer\RoleTransfer $roleTransfer
-     *
-     * @return bool
-     */
     public function isRoleAssignedToGroup(GroupTransfer $groupTransfer, RoleTransfer $roleTransfer): bool
     {
         $existingGroupRoles = $this->aclFacade->getGroupRoles($groupTransfer->getIdAclGroupOrFail());

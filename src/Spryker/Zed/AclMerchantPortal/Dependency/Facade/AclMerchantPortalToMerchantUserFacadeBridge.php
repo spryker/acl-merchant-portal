@@ -25,11 +25,6 @@ class AclMerchantPortalToMerchantUserFacadeBridge implements AclMerchantPortalTo
         $this->merchantUserFacade = $merchantUserFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserCriteriaTransfer $merchantUserCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantUserCollectionTransfer
-     */
     public function getMerchantUserCollection(MerchantUserCriteriaTransfer $merchantUserCriteriaTransfer): MerchantUserCollectionTransfer
     {
         return $this->merchantUserFacade->getMerchantUserCollection($merchantUserCriteriaTransfer);

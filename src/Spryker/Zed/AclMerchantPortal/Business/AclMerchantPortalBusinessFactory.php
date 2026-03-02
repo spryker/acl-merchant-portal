@@ -74,9 +74,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Generator\AclMerchantPortalGeneratorInterface
-     */
     public function createAclMerchantPortalGenerator(): AclMerchantPortalGeneratorInterface
     {
         return new AclMerchantPortalGenerator(
@@ -94,9 +91,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         return new AclEntityMetadataConfigExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\ConditionChecker\MerchantUser\UserRoleFilterConditionCheckerInterface
-     */
     public function createUserRoleFilterConditionChecker(): UserRoleFilterConditionCheckerInterface
     {
         return new UserRoleFilterConditionChecker(
@@ -105,17 +99,11 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Checker\MerchantUserRestrictionCheckerInterface
-     */
     public function createMerchantUserRestrictionChecker(): MerchantUserRestrictionCheckerInterface
     {
         return new MerchantUserRestrictionChecker($this->getAclFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Creator\AclEntityCreatorInterface
-     */
     public function createAclEntityCreator(): AclEntityCreatorInterface
     {
         return new AclEntityCreator(
@@ -126,9 +114,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Creator\AclRoleCreatorInterface
-     */
     public function createAclRoleCreator(): AclRoleCreatorInterface
     {
         return new AclRoleCreator(
@@ -140,9 +125,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Saver\AclRoleSaverInterface
-     */
     public function createAclRoleSaver(): AclRoleSaverInterface
     {
         return new AclRoleSaver(
@@ -155,9 +137,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Creator\AclEntitySegmentCreatorInterface
-     */
     public function createAclEntitySegmentCreator(): AclEntitySegmentCreatorInterface
     {
         return new AclEntitySegmentCreator(
@@ -166,9 +145,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Creator\AclRuleCreatorInterface
-     */
     public function createAclRuleCreator(): AclRuleCreatorInterface
     {
         return new AclRuleCreator(
@@ -178,9 +154,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Creator\AclEntityRuleCreatorInterface
-     */
     public function createAclEntityRuleCreator(): AclEntityRuleCreatorInterface
     {
         return new AclEntityRuleCreator(
@@ -191,9 +164,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Adder\GroupAdderInterface
-     */
     public function createGroupAdder(): GroupAdderInterface
     {
         return new GroupAdder(
@@ -203,9 +173,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Expander\AclEntityConfigurationExpanderInterface
-     */
     public function createAclEntityConfigurationExpander(): AclEntityConfigurationExpanderInterface
     {
         return new AclEntityConfigurationExpander(
@@ -213,17 +180,11 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Expander\AgentDashboardMerchantUserTableExpanderInterface
-     */
     public function createAgentDashboardMerchantUserTableExpander(): AgentDashboardMerchantUserTableExpanderInterface
     {
         return new AgentDashboardMerchantUserTableExpander($this->getConfig(), $this->getAclFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Reader\MerchantReaderInterface
-     */
     public function createMerchantReader(): MerchantReaderInterface
     {
         return new MerchantReader(
@@ -232,9 +193,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Reader\MerchantUserReaderInterface
-     */
     public function createMerchantUserReader(): MerchantUserReaderInterface
     {
         return new MerchantUserReader(
@@ -243,9 +201,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Saver\AclEntitySaverInterface
-     */
     public function createAclEntitySaver(): AclEntitySaverInterface
     {
         return new AclEntitySaver(
@@ -257,9 +212,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Synchronizer\AclEntitySynchronizerInterface
-     */
     public function createAclEntitySynchronizer(): AclEntitySynchronizerInterface
     {
         return new AclEntitySynchronizer(
@@ -269,9 +221,6 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Filter\AclEntityRuleFilterInterface
-     */
     public function createAclEntityRuleFilter(): AclEntityRuleFilterInterface
     {
         return new AclEntityRuleFilter(
@@ -279,41 +228,26 @@ class AclMerchantPortalBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Business\Checker\AclRoleAssignmentCheckerInterface
-     */
     public function createAclRoleAssignmentChecker(): AclRoleAssignmentCheckerInterface
     {
         return new AclRoleAssignmentChecker($this->getAclFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToMerchantFacadeInterface
-     */
     public function getMerchantFacade(): AclMerchantPortalToMerchantFacadeInterface
     {
         return $this->getProvidedDependency(AclMerchantPortalDependencyProvider::FACADE_MERCHANT);
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToMerchantUserFacadeInterface
-     */
     public function getMerchantUserFacade(): AclMerchantPortalToMerchantUserFacadeInterface
     {
         return $this->getProvidedDependency(AclMerchantPortalDependencyProvider::FACADE_MERCHANT_USER);
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface
-     */
     public function getAclFacade(): AclMerchantPortalToAclFacadeInterface
     {
         return $this->getProvidedDependency(AclMerchantPortalDependencyProvider::FACADE_ACL);
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclEntityFacadeInterface
-     */
     public function getAclEntityFacade(): AclMerchantPortalToAclEntityFacadeInterface
     {
         return $this->getProvidedDependency(AclMerchantPortalDependencyProvider::FACADE_ACL_ENTITY);

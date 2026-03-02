@@ -49,12 +49,6 @@ class AclEntityCreator implements AclEntityCreatorInterface
      */
     protected GroupAdderInterface $groupAdder;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Generator\AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Creator\AclRoleCreatorInterface $aclRoleCreator
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Adder\GroupAdderInterface $groupAdder
-     */
     public function __construct(
         AclMerchantPortalToAclFacadeInterface $aclFacade,
         AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator,
@@ -67,11 +61,6 @@ class AclEntityCreator implements AclEntityCreatorInterface
         $this->groupAdder = $groupAdder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     public function createAclEntitiesForMerchant(MerchantTransfer $merchantTransfer): MerchantResponseTransfer
     {
         if (!$merchantTransfer->getMerchantReference()) {
@@ -96,11 +85,6 @@ class AclEntityCreator implements AclEntityCreatorInterface
             ->setIsSuccess(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantUserTransfer
-     */
     public function createAclEntitiesForMerchantUser(MerchantUserTransfer $merchantUserTransfer): MerchantUserTransfer
     {
         $rolesTransfer = (new RolesTransfer())
@@ -116,11 +100,6 @@ class AclEntityCreator implements AclEntityCreatorInterface
         return $merchantUserTransfer;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     protected function createErrorMerchantResponseTransfer(string $message): MerchantResponseTransfer
     {
         $merchantErrorTransfer = (new MerchantErrorTransfer())

@@ -31,11 +31,6 @@ class AclEntitySynchronizer implements AclEntitySynchronizerInterface
      */
     protected AclEntitySaverInterface $aclEntitySaver;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Reader\MerchantReaderInterface $merchantReader
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Reader\MerchantUserReaderInterface $merchantUserReader
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Saver\AclEntitySaverInterface $aclEntitySaver
-     */
     public function __construct(
         MerchantReaderInterface $merchantReader,
         MerchantUserReaderInterface $merchantUserReader,
@@ -46,9 +41,6 @@ class AclEntitySynchronizer implements AclEntitySynchronizerInterface
         $this->aclEntitySaver = $aclEntitySaver;
     }
 
-    /**
-     * @return void
-     */
     public function synchronizeAclEntitiesForMerchantsAndMerchantUsers(): void
     {
         $this->getTransactionHandler()->handleTransaction(function () {
@@ -57,9 +49,6 @@ class AclEntitySynchronizer implements AclEntitySynchronizerInterface
         });
     }
 
-    /**
-     * @return void
-     */
     public function synchronizeAclEntitiesForMerchants(): void
     {
         $merchantTransfersGenerator = $this->merchantReader->getMerchantTransfersGenerator();
@@ -70,9 +59,6 @@ class AclEntitySynchronizer implements AclEntitySynchronizerInterface
         }
     }
 
-    /**
-     * @return void
-     */
     public function synchronizeAclEntitiesForMerchantUsers(): void
     {
         $merchantUserTransfersGenerator = $this->merchantUserReader->getMerchantUserTransfersGenerator();

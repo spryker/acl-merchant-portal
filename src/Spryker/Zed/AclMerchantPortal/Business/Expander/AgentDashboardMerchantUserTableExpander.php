@@ -41,10 +41,6 @@ class AgentDashboardMerchantUserTableExpander implements AgentDashboardMerchantU
      */
     protected AclMerchantPortalToAclFacadeInterface $aclFacade;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig $aclMerchantPortalConfig
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     */
     public function __construct(
         AclMerchantPortalConfig $aclMerchantPortalConfig,
         AclMerchantPortalToAclFacadeInterface $aclFacade
@@ -53,11 +49,6 @@ class AgentDashboardMerchantUserTableExpander implements AgentDashboardMerchantU
         $this->aclFacade = $aclFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataResponseTransfer $guiTableDataResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
-     */
     public function expand(GuiTableDataResponseTransfer $guiTableDataResponseTransfer): GuiTableDataResponseTransfer
     {
         $userIds = $this->extractUserIdsFromGuiTableDataResponse($guiTableDataResponseTransfer);

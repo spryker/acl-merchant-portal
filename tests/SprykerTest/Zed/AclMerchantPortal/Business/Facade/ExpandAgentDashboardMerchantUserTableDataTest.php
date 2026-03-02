@@ -57,9 +57,6 @@ class ExpandAgentDashboardMerchantUserTableDataTest extends Unit
      */
     protected AclMerchantPortalBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testSetsNullForAllRows(): void
     {
         // Arrange
@@ -80,9 +77,6 @@ class ExpandAgentDashboardMerchantUserTableDataTest extends Unit
         $this->assertNull($guiTableDataResponseTransfer->getRows()->offsetGet(1)->getResponseData()[static::COL_KEY_ASSIST_USER]);
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotSetNull(): void
     {
         // Arrange
@@ -100,9 +94,6 @@ class ExpandAgentDashboardMerchantUserTableDataTest extends Unit
         $this->assertTrue($guiTableDataResponseTransfer->getRows()->offsetGet(1)->getResponseData()[static::COL_KEY_ASSIST_USER]);
     }
 
-    /**
-     * @return void
-     */
     public function testSetsNullForOneRow(): void
     {
         // Arrange
@@ -122,9 +113,6 @@ class ExpandAgentDashboardMerchantUserTableDataTest extends Unit
         $this->assertNull($guiTableDataResponseTransfer->getRows()->offsetGet(1)->getResponseData()[static::COL_KEY_ASSIST_USER]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
-     */
     protected function createGuiTableDataResponseTransfer(): GuiTableDataResponseTransfer
     {
         $rowData1 = [

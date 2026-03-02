@@ -57,9 +57,6 @@ class AclMerchantPortalBusinessTester extends Actor
      */
     protected const ROOT_GROUP_NAME = 'root_group';
 
-    /**
-     * @return void
-     */
     public function assertAclMerchantData(): void
     {
         $ruleTransfers = $this->getZedAclMerchantPortalConfig()->getMerchantAclRoleRules();
@@ -73,9 +70,6 @@ class AclMerchantPortalBusinessTester extends Actor
         $this->assertSame(1, $this->getAclEntitySegmentPropelQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function assertAclMerchantUserData(): void
     {
         $ruleTransfers = $this->getZedAclMerchantPortalConfig()->getMerchantUserAclRoleRules();
@@ -90,9 +84,6 @@ class AclMerchantPortalBusinessTester extends Actor
         $this->assertSame(1, $this->getAclUserHasGroupQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function clearAllAclMerchantData(): void
     {
         $this->getAclRulePropelQuery()->deleteAll();
@@ -103,18 +94,12 @@ class AclMerchantPortalBusinessTester extends Actor
         $this->getAclUserHasGroupQuery()->deleteAll();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
-     */
     public function getAclEntityMetadataConfigTransfer(): AclEntityMetadataConfigTransfer
     {
         return (new AclEntityMetadataConfigTransfer())
             ->setAclEntityMetadataCollection(new AclEntityMetadataCollectionTransfer());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GroupTransfer
-     */
     public function haveRootGroup(): GroupTransfer
     {
         $groupCriteriaTransfer = (new GroupCriteriaTransfer())->setName(static::ROOT_GROUP_NAME);
@@ -126,9 +111,6 @@ class AclMerchantPortalBusinessTester extends Actor
         return $this->haveGroup([GroupTransfer::NAME => static::ROOT_GROUP_NAME]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantTransfer
-     */
     public function createMerchant(): MerchantTransfer
     {
         $merchantTransfer = (new MerchantBuilder())->build();
@@ -139,9 +121,6 @@ class AclMerchantPortalBusinessTester extends Actor
         ]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantUserTransfer
-     */
     public function createMerchantUser(): MerchantUserTransfer
     {
         $userTransfer = (new UserBuilder())->build();
@@ -163,11 +142,6 @@ class AclMerchantPortalBusinessTester extends Actor
         return $merchantUserTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclUserHasGroupCollectionTransfer $aclUserHasGroupCollectionTransfer
-     *
-     * @return void
-     */
     public function mockAclFacade(AclUserHasGroupCollectionTransfer $aclUserHasGroupCollectionTransfer): void
     {
         $aclFacadeMock = Stub::makeEmpty(
@@ -179,57 +153,36 @@ class AclMerchantPortalBusinessTester extends Actor
         $this->setDependency(AclMerchantPortalDependencyProvider::FACADE_ACL, $aclFacadeMock);
     }
 
-    /**
-     * @return \Orm\Zed\Acl\Persistence\SpyAclRuleQuery
-     */
     public function getAclRulePropelQuery(): SpyAclRuleQuery
     {
         return SpyAclRuleQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\AclEntity\Persistence\SpyAclEntityRuleQuery
-     */
     public function getAclEntityRulePropelQuery(): SpyAclEntityRuleQuery
     {
         return SpyAclEntityRuleQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Acl\Persistence\SpyAclRoleQuery
-     */
     public function getAclRolePropelQuery(): SpyAclRoleQuery
     {
         return SpyAclRoleQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Acl\Persistence\SpyAclGroupQuery
-     */
     public function getAclGroupPropelQuery(): SpyAclGroupQuery
     {
         return SpyAclGroupQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\AclEntity\Persistence\SpyAclEntitySegmentQuery
-     */
     public function getAclEntitySegmentPropelQuery(): SpyAclEntitySegmentQuery
     {
         return SpyAclEntitySegmentQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Acl\Persistence\SpyAclUserHasGroupQuery
-     */
     public function getAclUserHasGroupQuery(): SpyAclUserHasGroupQuery
     {
         return SpyAclUserHasGroupQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig
-     */
     protected function getZedAclMerchantPortalConfig(): AclMerchantPortalConfig
     {
         return new AclMerchantPortalConfig();

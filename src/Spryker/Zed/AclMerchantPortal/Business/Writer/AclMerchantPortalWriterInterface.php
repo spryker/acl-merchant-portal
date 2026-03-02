@@ -16,17 +16,7 @@ use Generated\Shared\Transfer\MerchantUserTransfer;
  */
 interface AclMerchantPortalWriterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     public function createMerchantAclData(MerchantTransfer $merchantTransfer): MerchantResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantUserTransfer
-     */
     public function createMerchantUserAclData(MerchantUserTransfer $merchantUserTransfer): MerchantUserTransfer;
 }

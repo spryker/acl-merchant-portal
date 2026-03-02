@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\UserTransfer;
 
 interface UserRoleFilterConditionCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\UserTransfer $userTransfer
-     * @param string $role
-     *
-     * @return bool
-     */
     public function checkUserRoleFilterCondition(UserTransfer $userTransfer, string $role): bool;
 }

@@ -12,11 +12,5 @@ use Generated\Shared\Transfer\MerchantUserTransfer;
 
 interface GroupAdderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     * @param \Generated\Shared\Transfer\GroupTransfer $merchantUserGroupTransfer
-     *
-     * @return void
-     */
     public function addMerchantUserToGroups(MerchantUserTransfer $merchantUserTransfer, GroupTransfer $merchantUserGroupTransfer): void;
 }

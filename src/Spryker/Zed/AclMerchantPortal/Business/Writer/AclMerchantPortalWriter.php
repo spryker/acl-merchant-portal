@@ -78,12 +78,6 @@ class AclMerchantPortalWriter implements AclMerchantPortalWriterInterface
      */
     protected $aclMerchantPortalConfig;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Generator\AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator
-     * @param \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig $aclMerchantPortalConfig
-     */
     public function __construct(
         AclMerchantPortalToAclFacadeInterface $aclFacade,
         AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade,
@@ -96,11 +90,6 @@ class AclMerchantPortalWriter implements AclMerchantPortalWriterInterface
         $this->aclMerchantPortalConfig = $aclMerchantPortalConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     public function createMerchantAclData(MerchantTransfer $merchantTransfer): MerchantResponseTransfer
     {
         $merchantResponseTransfer = (new MerchantResponseTransfer())
@@ -149,11 +138,6 @@ class AclMerchantPortalWriter implements AclMerchantPortalWriterInterface
         return $merchantResponseTransfer->setIsSuccess(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantUserTransfer
-     */
     public function createMerchantUserAclData(MerchantUserTransfer $merchantUserTransfer): MerchantUserTransfer
     {
         $aclMerchantReference = $this->aclMerchantPortalGenerator->generateAclMerchantReference(

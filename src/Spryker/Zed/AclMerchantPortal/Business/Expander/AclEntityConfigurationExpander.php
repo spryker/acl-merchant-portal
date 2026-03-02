@@ -40,11 +40,6 @@ class AclEntityConfigurationExpander implements AclEntityConfigurationExpanderIn
         $this->aclEntityConfigurationExpanderPlugins = $aclEntityConfigurationExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
-     */
     public function expandAclEntityConfiguration(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer {
@@ -57,11 +52,6 @@ class AclEntityConfigurationExpander implements AclEntityConfigurationExpanderIn
         return $this->executeAclEntityConfigurationExpanderPlugins($aclEntityMetadataConfigTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
-     */
     protected function executeAclEntityConfigurationExpanderPlugins(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer {
@@ -72,11 +62,6 @@ class AclEntityConfigurationExpander implements AclEntityConfigurationExpanderIn
         return $aclEntityMetadataConfigTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntityMetadataConfigTransfer
-     */
     protected function expandAclEntityConfigurationWithEventBehaviorCompositeData(
         AclEntityMetadataConfigTransfer $aclEntityMetadataConfigTransfer
     ): AclEntityMetadataConfigTransfer {

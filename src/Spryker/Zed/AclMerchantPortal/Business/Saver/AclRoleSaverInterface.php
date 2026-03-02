@@ -13,17 +13,7 @@ use Generated\Shared\Transfer\RoleTransfer;
 
 interface AclRoleSaverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\RoleTransfer
-     */
     public function saveMerchantAclRole(MerchantTransfer $merchantTransfer): RoleTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\RoleTransfer
-     */
     public function saveMerchantUserAclRole(MerchantUserTransfer $merchantUserTransfer): RoleTransfer;
 }

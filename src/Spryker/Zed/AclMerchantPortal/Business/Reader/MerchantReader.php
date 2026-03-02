@@ -25,10 +25,6 @@ class MerchantReader implements MerchantReaderInterface
      */
     protected AclMerchantPortalConfig $merchantPortalConfig;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig $merchantPortalConfig
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToMerchantFacadeInterface $merchantFacade
-     */
     public function __construct(
         AclMerchantPortalConfig $merchantPortalConfig,
         AclMerchantPortalToMerchantFacadeInterface $merchantFacade
@@ -57,12 +53,6 @@ class MerchantReader implements MerchantReaderInterface
         } while ($totalCount === $offset);
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\MerchantCriteriaTransfer
-     */
     protected function createMerchantCriteriaTransfer(int $offset, int $limit): MerchantCriteriaTransfer
     {
         $paginationTransfer = (new PaginationTransfer())

@@ -13,17 +13,7 @@ use Generated\Shared\Transfer\MerchantUserTransfer;
 
 interface AclEntitySegmentCreatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntitySegmentTransfer
-     */
     public function createMerchantAclEntitySegment(MerchantTransfer $merchantTransfer): AclEntitySegmentTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\AclEntitySegmentTransfer
-     */
     public function createMerchantUserAclEntitySegment(MerchantUserTransfer $merchantUserTransfer): AclEntitySegmentTransfer;
 }

@@ -45,9 +45,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
      */
     protected AclMerchantPortalBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -109,9 +106,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserFailsWithoutRequiredMerchantReference(): void
     {
         // Arrange
@@ -125,9 +119,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->tester->getFacade()->createAclEntitiesForMerchantUser($merchantUserTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserExecutesMerchantUserAclRuleExpanderPlugins(): void
     {
         // Assert
@@ -152,9 +143,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->tester->getFacade()->createAclEntitiesForMerchantUser($this->tester->createMerchantUser());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserExecutesMerchantUserAclEntityRuleExpanderPlugins(): void
     {
         // Assert
@@ -179,9 +167,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->tester->getFacade()->createAclEntitiesForMerchantUser($this->tester->createMerchantUser());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserCreatesSegment(): void
     {
         // Arrange
@@ -194,9 +179,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->assertSame(1, $this->tester->getAclEntitySegmentPropelQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserCreatesRole(): void
     {
         // Arrange
@@ -209,9 +191,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->assertSame(1, $this->tester->getAclRolePropelQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserCreatesRules(): void
     {
         // Arrange
@@ -245,9 +224,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->assertSame(1, $this->tester->getAclRulePropelQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserCreatesEntityRules(): void
     {
         // Arrange
@@ -280,9 +256,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->assertSame(1, $this->tester->getAclEntityRulePropelQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserCreatesGroup(): void
     {
         // Arrange
@@ -295,9 +268,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->assertSame(1, $this->tester->getAclGroupPropelQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserAddsMerchantUserToMerchantUserGroup(): void
     {
         // Arrange
@@ -310,9 +280,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->assertSame(1, $this->tester->getAclUserHasGroupQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserAddsMerchantUserToProductViewerGroup(): void
     {
         // Arrange
@@ -326,9 +293,6 @@ class CreateAclEntitiesForMerchantUserTest extends Unit
         $this->assertSame(2, $this->tester->getAclUserHasGroupQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAclEntitiesForMerchantUserAddsMerchantUserToMerchantGroup(): void
     {
         // Arrange

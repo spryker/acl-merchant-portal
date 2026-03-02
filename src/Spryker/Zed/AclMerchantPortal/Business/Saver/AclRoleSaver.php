@@ -53,14 +53,6 @@ class AclRoleSaver implements AclRoleSaverInterface
      */
     protected AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Creator\AclEntitySegmentCreatorInterface $aclEntitySegmentCreator
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Creator\AclRuleCreatorInterface $aclRuleCreator
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Creator\AclEntityRuleCreatorInterface $aclEntityRuleCreator
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Generator\AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade
-     */
     public function __construct(
         AclMerchantPortalToAclFacadeInterface $aclFacade,
         AclEntitySegmentCreatorInterface $aclEntitySegmentCreator,
@@ -77,11 +69,6 @@ class AclRoleSaver implements AclRoleSaverInterface
         $this->aclEntityFacade = $aclEntityFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\RoleTransfer
-     */
     public function saveMerchantAclRole(MerchantTransfer $merchantTransfer): RoleTransfer
     {
         $aclMerchantRoleName = $this->aclMerchantPortalGenerator->generateAclMerchantRoleName($merchantTransfer);
@@ -100,11 +87,6 @@ class AclRoleSaver implements AclRoleSaverInterface
             ->setAclEntityRules(new ArrayObject($this->aclEntityRuleCreator->createMerchantAclEntityRules($roleTransfer, $aclEntitySegmentTransfer)));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\RoleTransfer
-     */
     public function saveMerchantUserAclRole(MerchantUserTransfer $merchantUserTransfer): RoleTransfer
     {
         $aclMerchantUserRoleName = $this->aclMerchantPortalGenerator->generateAclMerchantUserRoleName($merchantUserTransfer);
@@ -123,11 +105,6 @@ class AclRoleSaver implements AclRoleSaverInterface
             ->setAclEntityRules(new ArrayObject($this->aclEntityRuleCreator->createMerchantUserAclEntityRules($roleTransfer, $aclEntitySegmentTransfer)));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RoleTransfer $roleTransfer
-     *
-     * @return \Generated\Shared\Transfer\RoleTransfer
-     */
     protected function getRoleTransfer(RoleTransfer $roleTransfer): RoleTransfer
     {
         $roleExists = $this->aclFacade->existsRoleByName($roleTransfer->getNameOrFail());
@@ -138,11 +115,6 @@ class AclRoleSaver implements AclRoleSaverInterface
         return $this->aclFacade->createRole($roleTransfer);
     }
 
-    /**
-     * @param string $reference
-     *
-     * @return \Generated\Shared\Transfer\AclEntitySegmentTransfer|null
-     */
     protected function findAclEntitySegmentByReference(string $reference): ?AclEntitySegmentTransfer
     {
         $aclEntitySegmentCriteriaTransfer = (new AclEntitySegmentCriteriaTransfer())
@@ -157,12 +129,6 @@ class AclRoleSaver implements AclRoleSaverInterface
         return $aclEntitySegmentCollectionTransfer->getAclEntitySegments()->offsetGet(0);
     }
 
-    /**
-     * @param string $aclMerchantRoleName
-     * @param string $aclMerchantReference
-     *
-     * @return \Generated\Shared\Transfer\RoleTransfer
-     */
     protected function createRoleTransfer(string $aclMerchantRoleName, string $aclMerchantReference): RoleTransfer
     {
         return (new RoleTransfer())

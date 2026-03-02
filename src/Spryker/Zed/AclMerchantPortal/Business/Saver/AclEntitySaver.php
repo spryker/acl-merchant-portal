@@ -45,13 +45,6 @@ class AclEntitySaver implements AclEntitySaverInterface
      */
     protected AclRoleAssignmentCheckerInterface $aclRoleAssignmentChecker;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Generator\AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Saver\AclRoleSaverInterface $aclRoleSaver
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Adder\GroupAdderInterface $groupAdder
-     * @param \Spryker\Zed\AclMerchantPortal\Business\Checker\AclRoleAssignmentCheckerInterface $aclRoleAssignmentChecker
-     */
     public function __construct(
         AclMerchantPortalToAclFacadeInterface $aclFacade,
         AclMerchantPortalGeneratorInterface $aclMerchantPortalGenerator,
@@ -66,11 +59,6 @@ class AclEntitySaver implements AclEntitySaverInterface
         $this->aclRoleAssignmentChecker = $aclRoleAssignmentChecker;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return void
-     */
     public function saveAclEntitiesForMerchant(MerchantTransfer $merchantTransfer): void
     {
         $merchantAclRoleTransfer = $this->aclRoleSaver->saveMerchantAclRole($merchantTransfer);
@@ -91,11 +79,6 @@ class AclEntitySaver implements AclEntitySaverInterface
         $this->aclFacade->createGroup($groupTransfer, $rolesTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return void
-     */
     public function saveAclEntitiesForMerchantUser(MerchantUserTransfer $merchantUserTransfer): void
     {
         $merchantUserAclRoleTransfer = $this->aclRoleSaver->saveMerchantUserAclRole($merchantUserTransfer);
@@ -118,11 +101,6 @@ class AclEntitySaver implements AclEntitySaverInterface
         $this->groupAdder->addMerchantUserToGroups($merchantUserTransfer, $merchantUserGroupTransfer);
     }
 
-    /**
-     * @param string $reference
-     *
-     * @return \Generated\Shared\Transfer\GroupTransfer|null
-     */
     protected function findExistingGroup(string $reference): ?GroupTransfer
     {
         $groupCriteriaTransfer = (new GroupCriteriaTransfer())->setReference($reference);
@@ -130,13 +108,6 @@ class AclEntitySaver implements AclEntitySaverInterface
         return $this->aclFacade->findGroup($groupCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GroupTransfer $groupTransfer
-     * @param \Generated\Shared\Transfer\RolesTransfer $rolesTransfer
-     * @param \Generated\Shared\Transfer\RoleTransfer $roleTransfer
-     *
-     * @return \Generated\Shared\Transfer\GroupTransfer
-     */
     protected function addRoleToGroupIfNotAssigned(
         GroupTransfer $groupTransfer,
         RolesTransfer $rolesTransfer,

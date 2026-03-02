@@ -24,39 +24,21 @@ class AclMerchantPortalGenerator implements AclMerchantPortalGeneratorInterface
      */
     protected AclMerchantPortalConfig $aclMerchantPortalConfig;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\AclMerchantPortalConfig $aclMerchantPortalConfig
-     */
     public function __construct(AclMerchantPortalConfig $aclMerchantPortalConfig)
     {
         $this->aclMerchantPortalConfig = $aclMerchantPortalConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantRoleName(MerchantTransfer $merchantTransfer): string
     {
         return $this->generateMerchantPortalKeyToMerchantNameConjunction($merchantTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantGroupName(MerchantTransfer $merchantTransfer): string
     {
         return $this->generateMerchantPortalKeyToMerchantNameConjunction($merchantTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantUserRoleName(MerchantUserTransfer $merchantUserTransfer): string
     {
         return $this->generateMerchantNameToMerchantUserNameConjunction(
@@ -65,11 +47,6 @@ class AclMerchantPortalGenerator implements AclMerchantPortalGeneratorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantUserGroupName(MerchantUserTransfer $merchantUserTransfer): string
     {
         return $this->generateMerchantNameToMerchantUserNameConjunction(
@@ -78,11 +55,6 @@ class AclMerchantPortalGenerator implements AclMerchantPortalGeneratorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantReference(MerchantTransfer $merchantTransfer): string
     {
         return sprintf(
@@ -92,32 +64,16 @@ class AclMerchantPortalGenerator implements AclMerchantPortalGeneratorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantSegmentName(MerchantTransfer $merchantTransfer): string
     {
         return $this->generateMerchantPortalKeyToMerchantNameConjunction($merchantTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     * @param \Generated\Shared\Transfer\UserTransfer $userTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantUserSegmentName(MerchantTransfer $merchantTransfer, UserTransfer $userTransfer): string
     {
         return $this->generateMerchantNameToMerchantUserNameConjunction($merchantTransfer, $userTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UserTransfer $userTransfer
-     *
-     * @return string
-     */
     public function generateAclMerchantUserReference(UserTransfer $userTransfer): string
     {
         return sprintf(
@@ -127,11 +83,6 @@ class AclMerchantPortalGenerator implements AclMerchantPortalGeneratorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return string
-     */
     protected function generateMerchantPortalKeyToMerchantNameConjunction(MerchantTransfer $merchantTransfer): string
     {
         return sprintf(
@@ -141,12 +92,6 @@ class AclMerchantPortalGenerator implements AclMerchantPortalGeneratorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     * @param \Generated\Shared\Transfer\UserTransfer $userTransfer
-     *
-     * @return string
-     */
     protected function generateMerchantNameToMerchantUserNameConjunction(
         MerchantTransfer $merchantTransfer,
         UserTransfer $userTransfer

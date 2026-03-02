@@ -24,19 +24,11 @@ class MerchantUserRestrictionChecker implements MerchantUserRestrictionCheckerIn
      */
     protected AclMerchantPortalToAclFacadeInterface $aclFacade;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclFacadeInterface $aclFacade
-     */
     public function __construct(AclMerchantPortalToAclFacadeInterface $aclFacade)
     {
         $this->aclFacade = $aclFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return bool
-     */
     public function isLoginRestricted(MerchantUserTransfer $merchantUserTransfer): bool
     {
         $groupsTransfer = $this->aclFacade->getUserGroups($merchantUserTransfer->getIdUserOrFail());

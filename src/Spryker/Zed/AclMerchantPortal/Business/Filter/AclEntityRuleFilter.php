@@ -24,9 +24,6 @@ class AclEntityRuleFilter implements AclEntityRuleFilterInterface
      */
     protected AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade;
 
-    /**
-     * @param \Spryker\Zed\AclMerchantPortal\Dependency\Facade\AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade
-     */
     public function __construct(AclMerchantPortalToAclEntityFacadeInterface $aclEntityFacade)
     {
         $this->aclEntityFacade = $aclEntityFacade;
@@ -97,11 +94,6 @@ class AclEntityRuleFilter implements AclEntityRuleFilterInterface
         return $indexedAclEntityRuleTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AclEntityRuleTransfer $aclEntityRuleTransfer
-     *
-     * @return string
-     */
     protected function getAclEntityIndexKey(AclEntityRuleTransfer $aclEntityRuleTransfer): string
     {
         $indexKey = $aclEntityRuleTransfer->getEntityOrFail() . static::INDEX_KEY_DELIMITER .
